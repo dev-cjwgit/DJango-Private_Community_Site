@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    #container {
+  display: flex;
+  width:475px;
+}
+#box-left {
+  flex: 1;
+}
+
+#box-right {
+  flex: 1;
+  t
+}
+
+</style>
+
+<h1>게시글 작성하기</h1>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <label for="title">제목</label><br>
+    <input id="title" type="text" name="title" style="width:470px">
+    <br><br>
+    <label for="content">내용</label><br>
+    <textarea name="content" style="resize: none;"
+              id="content" cols="65" rows="10"></textarea>
+    <div id="container">
+        <div id="box-left">
+            <a href="{% url 'articles:index' %}">목록으로</a>
+        </div>
+        <div id="box-right">
+            <input type="submit" value="글쓰기">
+        </div>
+    </div>
+</form>
+</body>
+{% endblock %}

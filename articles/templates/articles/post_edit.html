@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<style>
+    #container {
+  display: flex;
+  width:475px;
+}
+#box-left {
+  flex: 1;
+}
+
+#box-right {
+  flex: 1;
+  text-align: right;
+}
+
+
+</style>
+
+<h1>게시글 수정</h1>
+
+<form action="" method='POST'>
+    {% csrf_token %}
+
+    <label for="title">제목</label><br>
+    <input id="title" type="text" name="title" style="width:470px" value="{{ article.title }}">
+    <br><br>
+    <label for="content">내용</label><br>
+    <textarea name="content" style="resize: none;"
+              id="content" cols="65" rows="10">{{ article.content }}</textarea>
+    <div id="container">
+        <div id="box-left">
+            <a href="../">뒤로가기</a>
+        </div>
+        <div id="box-right">
+            <input type="submit" value='수정'>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
